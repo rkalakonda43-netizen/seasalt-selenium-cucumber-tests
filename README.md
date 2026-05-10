@@ -1,4 +1,4 @@
-# Seasalt Cornwall Login Automation - Java Selenium POM
+# Seasalt Selenium Cucumber Tests
 
 This is a Maven, Java, Selenium WebDriver, Cucumber, and Page Object Model project for the Seasalt Cornwall login journey.
 
@@ -15,7 +15,7 @@ This is a Maven, Java, Selenium WebDriver, Cucumber, and Page Object Model proje
 ## Project structure
 
 ```text
-seasalt-login-pom
+seasalt-selenium-cucumber-tests
 ├── pom.xml
 ├── README.md
 └── src

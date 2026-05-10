@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.seasalt</groupId>
-    <artifactId>seasalt-login-pom</artifactId>
+    <artifactId>seasalt-selenium-cucumber-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Seasalt Login Selenium POM</name>
+    <name>Seasalt Selenium Cucumber Tests</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
