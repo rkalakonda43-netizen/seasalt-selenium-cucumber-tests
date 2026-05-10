@@ -39,11 +39,9 @@ The project uses WebDriverManager, so you do not need to download ChromeDriver m
 Clone the repository and move into the project folder:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rkalakonda43-netizen/seasalt-selenium-cucumber-tests.git
 cd seasalt-selenium-cucumber-tests
 ```
-
-Replace `<repository-url>` with the Git URL for this repository.
 
 ## Install Dependencies
 
@@ -64,7 +62,7 @@ mvn clean test
 This opens Chrome and runs the live Seasalt Cornwall purchase-flow scenario defined in:
 
 ```text
-src/test/resources/features/login.feature
+src/test/resources/features/seasalt_purchase_journey.feature
 ```
 
 ## Run A Dry Check
@@ -115,7 +113,7 @@ seasalt-selenium-cucumber-tests
         │               └── DriverFactory.java
         └── resources
             └── features
-                └── login.feature
+                └── seasalt_purchase_journey.feature
 ```
 
 ## Useful Commands

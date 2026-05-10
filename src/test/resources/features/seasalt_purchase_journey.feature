@@ -1,4 +1,4 @@
-Feature: Seasalt Cornwall login
+Feature: Seasalt Cornwall purchase journey
 
   Background:
     Given user opens the Seasalt Cornwall login page
