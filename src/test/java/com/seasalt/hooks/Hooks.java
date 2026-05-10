@@ -1,4 +1,4 @@
-package com.seasalt.steps;
+package com.seasalt.hooks;
 
 import com.seasalt.utils.DriverFactory;
 import io.cucumber.java.After;

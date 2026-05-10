@@ -1,5 +1,8 @@
 package com.seasalt.pages;
 
+import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -8,17 +11,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.List;
-
 public abstract class BasePage {
 
     protected final WebDriver driver;
     protected final WebDriverWait wait;
 
-    private final By cookieAcceptButtons = By.cssSelector(
-            "#onetrust-accept-btn-handler, button[id*='accept'], button[class*='accept'], " +
-            "button[aria-label*='Accept'], .accept-cookie, .cookie-accept"
+    // Cookie accept button used by the OneTrust cookie banner
+    private final By cookieAcceptButton = By.cssSelector(
+            "#onetrust-accept-btn-handler, " +
+            "button[aria-label='Accept All Cookies'], " +
+            "button[aria-label='Accept All']"
     );
     private final By popupCloseButton = By.cssSelector(
             "#closeButton, button[aria-label='Close'], button[aria-label*='close'], " +
@@ -58,11 +60,20 @@ public abstract class BasePage {
         }
     }
 
-    public void acceptCookiesIfVisible() {
-        clickFirstVisibleElement(cookieAcceptButtons, 5);
+    protected void dismissInterruptions() {
+        acceptCookiesIfVisible();
+        closePopupIfVisible();
     }
 
-    public void closePopupIfVisible() {
+    protected void acceptCookiesIfVisible() {
+        try {
+            waitForClickable(cookieAcceptButton).click();
+        } catch (TimeoutException ignored) {
+            // Cookie banner is not displayed for every test run
+        }
+    }
+
+    protected void closePopupIfVisible() {
         clickFirstVisibleElement(popupCloseButton, 4);
     }
 
@@ -98,4 +109,5 @@ public abstract class BasePage {
     protected void submitFormWithJavaScript(WebElement form) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].submit();", form);
     }
+
 }
